@@ -2,7 +2,7 @@
 using namespace std;
 struct Node{
     int data;
-    struct Node* next;
+    struct Node* next = NULL;
 };
 struct Stack{
     Node* top = NULL;
@@ -14,8 +14,13 @@ void Push(Stack &s, int data){
     s.top = n;
 }
 void Pop(Stack &s){
-
+    if(s.top == NULL)
+        cout<<"Stack is empty!";
+    else{
+    Node* n = s.top;
     s.top = s.top->next;
+    delete n;
+    }
 }
 bool isEmpty(Stack s){
     return s.top == NULL;
