@@ -20,8 +20,14 @@ void Push(Stack &s, int data){
     }
 }
 void Pop(Stack &s){
+    if(s.top == NULL)
+        cout<<"Stack is empty!";
+    else{
+    Node* n = s.top;
     s.top->next->prev = NULL;
     s.top = s.top->next;
+    delete n;
+    }
 }
 bool isEmpty(Stack s){
     return s.top == NULL;
