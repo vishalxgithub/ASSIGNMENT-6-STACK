@@ -9,7 +9,10 @@ void Push(Stack &s, int data){
     s.arr[s.top] = data;
 }
 void Pop(Stack &s){
-    s.top--;
+    if(s.top == -1)
+        cout<<"Stack is empty!";
+    else
+        s.top--;
 }
 int Top(Stack s){
     return s.arr[s.top];
@@ -35,5 +38,6 @@ int main()
     cout<<"Top value of the stack: "<<Top(s)<<endl;
     cout<<"Size of the stack: "<<Size(s)<<endl;
     cout<<"Is stack is empty: "<<isEmpty(s)<<endl;
+    delete[] s.arr;
     return 0;
 }
