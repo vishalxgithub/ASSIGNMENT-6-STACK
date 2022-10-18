@@ -23,12 +23,34 @@ bool isEmpty(Stack s){
 int Top(Stack s){
     return s.top->data;
 }
+int Size(Stack s){
+    int size = 1;
+    Node* temp = s.top;
+    while(temp->next != NULL){
+        size++;
+        temp = temp->next;
+    }
+    return size;
+}
+void printStack(Stack s){
+    Node* temp = s.top;
+    while(temp != NULL){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    cout<<endl;
+}
 int main()
 {
     Stack s;
-    Push(s,22);Push(s,33);
+    Push(s,22);Push(s,33);Push(s,44);
+    printStack(s);
+    Push(s,55);
+    printStack(s);
     Pop(s);
-    cout<<isEmpty(s)<<endl;
-    cout<<Top(s)<<endl;
+    printStack(s);
+    cout<<"Is empty: "<<isEmpty(s)<<endl;
+    cout<<"Size: "<<Size(s)<<endl;
+    cout<<"Top element: "<<Top(s)<<endl;
     return 0;
 }
