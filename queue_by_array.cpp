@@ -1,31 +1,18 @@
 #include <iostream>
 using namespace std;
 
-struct Node{
-	int data;
-	Node *next;
-};
-
-Node* createNode(int val){
-	Node *temp = new Node;
-	temp->data = val;
-	return temp;
-}
-
 //complete the functions
-
 class Queue{
-	Node *head;
-	Node *tail;
-	int s;
+	int A[100000];
+	int start;
+	int end;
 	
 	public:
 	//constructor is called whenever an object of the class is declared
 	Queue(){
 		cout<<"constructor is Called\n";
-		s=0;
-		head=NULL;
-		tail=NULL;
+		start=0;
+		end=0;
 	}
 	
 	//push the value at the back
